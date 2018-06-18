@@ -10,6 +10,7 @@ var trackGuesses = [""]; //empty array that fills up with all of the letters the
 var guessesLeft = 0; //integer, tracks how man guesses the user has left
 var currentGuess = 0; //integer, tracks how many times the user has guessed, used to index trackGuesses to display what letters the user has guessed to the screen
 var correctCounter = 0; //tracks how many correct letters the user has guessed
+var checkUserInput = 0; //weill check if user has hit enter after losing or winning the game
 
 //initalize each city as an object containing the name, picture, and description of the respective city
 var austin = {
@@ -144,7 +145,7 @@ var santorini = {
 var johannesburg = {
     name : "Johannesburg",
     picture : "./assets/images/Johannesburg.jpg",
-    description : "This city is home to the largest castle in the world. The castle dates back to the 9th century.",
+    description : "This city is home to the worlds largets man-made forest, with over 10 million trees",
 
 };
 
@@ -160,17 +161,22 @@ usedCities[wins] = cityChosen.name; //filling the usedCities array with the name
 //this prints a set of lines equivalent to the number of characters in the string chosen by the computer
 for (var i = 0; i < cityChosen.name.length; i++) {
 
-    document.getElementById("line" + i).innerHTML = " _ ";
+    var targetDiv = document.getElementById("theShow");
+    var newDiv = document.createElement("span");
+    newDiv.innerText = "    _    ";
+    targetDiv.appendChild(newDiv);
+    newDiv.setAttribute("id", "line" + i);
+    newDiv.setAttribute("class", "mx-2");
 
 }
 
 //set starting picture
 document.getElementById("cityPicture").src=cityChosen.picture;
 //set starting descrition
-document.getElementById("cityDescription").innerHTML = cityChosen.description;
+document.getElementById("cityDescription").innerText = cityChosen.description;
 
 //checks how many guesses are left in the HTML document
-guessesLeft = document.getElementById("guesses").innerHTML;
+guessesLeft = document.getElementById("guesses").innerText;
 //takes string received from document function and turns it into an integer
 guessesLeft = parseInt(guessesLeft);
 
@@ -197,14 +203,14 @@ document.onkeyup = function(event) {
 
         //this fills an array to track the letters the user has guessed and will be displayed to the screen
         trackGuesses[currentGuess] = userGuess;
-        document.getElementById("lettersGuessed").innerHTML = trackGuesses;
+        document.getElementById("lettersGuessed").innerText = trackGuesses;
 
         currentGuess++;
     
         for (i = 0; i < cityChosen.name.length; i ++) {
             if (userGuess === cityChosen.name.substring(i, (i + 1)).toLowerCase()) {
                 //add letter to blanks in html code//
-                document.getElementById("line" + i).innerHTML = userGuess;
+                document.getElementById("line" + i).innerText = userGuess;
                 //cant return since there could be duplicate letters in code//
 
                 correctCounter ++; //incrament this counter for each correct letter, then compare to string length of correct city to see if user has won
@@ -215,7 +221,7 @@ document.onkeyup = function(event) {
         if (guessFlag < 1) {
             //this means the guess was wrong //
             guessesLeft = guessesLeft - 1;
-            document.getElementById("guesses").innerHTML = guessesLeft;
+            document.getElementById("guesses").innerText = guessesLeft;
             //have to reduce the number of tries the user has left//
         }
         //print letter that was guessed to the screen in correct location//
@@ -228,9 +234,17 @@ document.onkeyup = function(event) {
             //more chars I have to clear all of the spans before overwriting with "_"
             wins ++;
 
+            document.getElementById("youGotIt").innerText = "Nailed it. Hit enter to proceed to your next destination"
+                
+           
+
+            
+
             for (var i = 0; i < cityChosen.name.length; i++) {
 
-                document.getElementById("line" + i).innerHTML = " ";
+                targetDiv = document.getElementById("theShow");
+                newDiv = document.getElementById("line" + i);
+                targetDiv.removeChild(newDiv);
             
             }
 
@@ -254,27 +268,35 @@ document.onkeyup = function(event) {
             //sets blanks to size of new city char length
             for (var i = 0; i < cityChosen.name.length; i++) {
 
-                document.getElementById("line" + i).innerHTML = " _ ";
+                targetDiv = document.getElementById("theShow");
+                newDiv = document.createElement("span");
+                newDiv.innerText = "    _    ";
+                targetDiv.appendChild(newDiv);
+                newDiv.setAttribute("id", "line" + i);
+                newDiv.setAttribute("class", "mx-2");
             
             }
 
 
 
             //reset counters
+            checkUserInput = 0;
             correctCounter = 0;
             currentGuess = 0;
             guessesLeft = 10;
-            document.getElementById("guesses").innerHTML = guessesLeft;
+            document.getElementById("guesses").innerText = guessesLeft;
 
             //reset guess arrays
             trackGuesses = [""];
-            document.getElementById("lettersGuessed").innerHTML = trackGuesses
+            document.getElementById("lettersGuessed").innerText = trackGuesses
 
 
             //change picture
             document.getElementById("cityPicture").src=cityChosen.picture;
             //change descrition
-            document.getElementById("cityDescription").innerHTML = cityChosen.description;
+            document.getElementById("cityDescription").innerText = cityChosen.description;
+            //remove text telling the user he got it right
+            document.getElementById("youGotIt").innerText = "Nailed it. Hit enter to proceed to your next destination"
         
 
 
