@@ -99,10 +99,61 @@ var lima = {
 
 };
 
-//push all objects into the array cityChoices[]
-cityChoices.push(austin,houston,bogota,london,paris,portland,denver,moscow,madrid,barcelona,vancouver,milan,lima);
+var sydney = {
+    name : "Sydney",
+    picture : "./assets/images/Sydney.jpg",
+    description : "This city has the deepest natural harbor in the world containing 504,000 mega liters of water",
 
- 
+};
+var monterrey = {
+    name : "Monterrey",
+    picture : "./assets/images/Monterrey.jpg",
+    description : "This city has the largest consumption of Coca-cola per inhabitant in the world",
+
+};
+var cairo = {
+    name : "Cairo",
+    picture : "./assets/images/Cairo.jpg",
+    description : "This capital sit on the Nile river",
+
+};
+var prague = {
+    name : "Prague",
+    picture : "./assets/images/Prague.jpg",
+    description : "This city is home to the largest castle in the world. The castle dates back to the 9th century.",
+
+};
+var venice = {
+    name : "Venice",
+    picture : "./assets/images/Venice.jpg",
+    description : "This city is built on more than 100 small islands in a lagoon in the Adriatic Sea. There are no roads in tis city, just canals",
+
+};
+var antigua = {
+    name : "Antigua",
+    picture : "./assets/images/Antigua.jpg",
+    description : "This city sits between 3 active volcanoes. It was the former capital of a Central American country ",
+
+};
+var santorini = {
+    name : "Santorini",
+    picture : "./assets/images/Santorini.jpg",
+    description : "This city is known for its white buildings topped with blue roofs. These colors are symbolic for the country in which this city is located",
+
+};
+var johannesburg = {
+    name : "Johannesburg",
+    picture : "./assets/images/Johannesburg.jpg",
+    description : "This city is home to the largest castle in the world. The castle dates back to the 9th century.",
+
+};
+
+
+//push all objects into the array cityChoices[]
+cityChoices.push(austin,houston,bogota,london,paris,portland,denver,moscow,madrid,barcelona,vancouver,milan,lima,sydney,monterrey,cairo,prague,venice,antigua,santorini,johannesburg);
+
+ console.log(cityChoices.length);
+
 cityChosen = cityChoices[Math.floor(Math.random() * cityChoices.length)]; //sets the value of citychosen to the object of the city the user will guess depending random selection
 usedCities[wins] = cityChosen.name; //filling the usedCities array with the name of the city that has been used
 
@@ -186,7 +237,7 @@ document.onkeyup = function(event) {
 
             cityChosen = cityChoices[Math.floor(Math.random() * cityChoices.length)]; //resets city to guess
 
-
+            console.log(wins);
             //ensures you cycle through all cities
             while (usedCities.includes(cityChosen.name)) {
                 cityChosen = cityChoices[Math.floor(Math.random() * cityChoices.length)];
