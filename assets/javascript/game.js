@@ -115,7 +115,7 @@ var monterrey = {
 var cairo = {
     name : "Cairo",
     picture : "./assets/images/Cairo.jpg",
-    description : "This capital sit on the Nile river",
+    description : "This capital sits on the Nile river",
 
 };
 var prague = {
@@ -166,7 +166,7 @@ for (var i = 0; i < cityChosen.name.length; i++) {
     newDiv.innerText = "    _    ";
     targetDiv.appendChild(newDiv);
     newDiv.setAttribute("id", "line" + i);
-    newDiv.setAttribute("class", "mx-2");
+    newDiv.setAttribute("class", "mx-1");
 
 }
 
@@ -234,7 +234,7 @@ document.onkeyup = function(event) {
             //more chars I have to clear all of the spans before overwriting with "_"
             wins ++;
 
-            document.getElementById("youGotIt").innerText = "Nailed it. Hit enter to proceed to your next destination"
+            document.getElementById("youGotIt").innerText = "Cities visited: " + wins;
                 
            
 
@@ -258,7 +258,7 @@ document.onkeyup = function(event) {
                 //set to length of cityChoices since wins is incremented before this code
                 if (wins === cityChoices.length)
                 {
-                    alert("you travelled around the world! Congrats");
+                    alert("you travelled around the world! Congrats! Hit refresh to play again");
                     return;
                 }
             }
@@ -273,7 +273,7 @@ document.onkeyup = function(event) {
                 newDiv.innerText = "    _    ";
                 targetDiv.appendChild(newDiv);
                 newDiv.setAttribute("id", "line" + i);
-                newDiv.setAttribute("class", "mx-2");
+                newDiv.setAttribute("class", "mx-1");
             
             }
 
@@ -296,7 +296,7 @@ document.onkeyup = function(event) {
             //change descrition
             document.getElementById("cityDescription").innerText = cityChosen.description;
             //remove text telling the user he got it right
-            document.getElementById("youGotIt").innerText = "Nailed it. Hit enter to proceed to your next destination"
+            
         
 
 

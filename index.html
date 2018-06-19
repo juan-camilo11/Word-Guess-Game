@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="../Word-Guess-Game/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Prosto+One" rel="stylesheet">
     
 </head>
-<body>
+<body class="bg-secondary">
         <!-- this contains my title block so far    -->
-    <header class="container pb-3">          
-        <div class="row">
+    <header class="py-4 bg-light text-secondary">          
+        <div class="row pb-4">
             <div class="col-md-2">
 
             </div>
@@ -30,37 +31,37 @@
     
 
 <!-- this contains the bulk of my code -->
-<div class="container pt-3">
+<div class="container pt-3 text-secondary">
         <div class="row">
             <div class="col-md-1">
 
             </div>
             <!-- this contains my picture. picture and text will eventually change depending on the city guessed -->
-            <div class="col-md-5 text-center">
+            <div class="col-md-5 text-center mr-4 p-5 bg-light daContent">
                 <div class="pb-3">
-                    <img src="" class="img-fluid" alt="Responsive Image" id="cityPicture" height=100% width=100%>
+                    <img src="" class="img-fluid" alt="Responsive Image" id="cityPicture" height=200% width=200%>
                 </div>
                 <div id="cityDescription">
                     
                 </div>
             </div>
              <!-- this column contains the actual game -->
-            <div class="col-md-5 text-center">
+            <div class="col-md-5 text-center ml-4 p-5 bg-light daContent">
                 <div class="pb-3">
-                    Type a letter to begin playing! Guess the City based on the picture and clues provided on the left!
+                    Type a letter to begin! Guess the City based on the picture and clues provided on the left!
                 </div>
                 <div class="mx-3 my-3"id="theShow">
                     
                 </div>
-                <div>
+                <div class="daText">
                     Letters Guessed:
                 </div>
 
-                <!-- i have to make an array that keeps track of the ltters that have been guessed -->
+                <!-- i have to make an array that keeps track of the letters that have been guessed -->
                 <div class="py-3" id="lettersGuessed">
                     
                 </div>
-                <div>
+                <div class="daText">
                     Guesses Left
                 </div>
                 <div class="py-3" id="guesses">

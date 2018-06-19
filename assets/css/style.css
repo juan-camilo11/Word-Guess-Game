@@ -1,0 +1,43 @@
+body {
+
+
+    
+    font-family: 'Prosto One', cursive;
+}
+
+.container {
+
+    font-size: 1.4rem;
+
+}
+
+h1 {
+
+    font-size: 3rem;
+    
+}
+
+header {
+
+    margin-bottom: 5%;
+    border-bottom: 1rem solid teal;
+    
+}
+
+.daContent {
+
+
+    border: .5rem solid teal;
+}
+
+#cityPicture {
+
+    padding-bottom: 1rem;
+    border-bottom: .15rem solid teal;
+}
+
+.daText {
+
+    padding-bottom: .15rem;
+    border-bottom: .15rem solid teal;
+}
