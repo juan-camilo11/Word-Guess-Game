@@ -230,16 +230,16 @@ document.onkeyup = function(event) {
         //runs when the sure guesses the correct word. Resets all variables and sets new word
         if ( correctCounter === cityChosen.name.length) {
 
-            //resets blanks on the screen. have to compare new city to old city. if old city has 
-            //more chars I have to clear all of the spans before overwriting with "_"
+           //incrament win counter
             wins ++;
 
+            //manipulate the DOM to diplay number of cities visted
             document.getElementById("youGotIt").innerText = "Cities visited: " + wins;
                 
            
 
             
-
+            //removes the previous correctly guessed word from the display
             for (var i = 0; i < cityChosen.name.length; i++) {
 
                 targetDiv = document.getElementById("theShow");
@@ -266,6 +266,7 @@ document.onkeyup = function(event) {
             usedCities[wins] = cityChosen.name; //adds the new city to the used cities array
 
             //sets blanks to size of new city char length
+            //uses javascript DOM manipulation to create blanks to match the length of the newly selected city
             for (var i = 0; i < cityChosen.name.length; i++) {
 
                 targetDiv = document.getElementById("theShow");
@@ -333,14 +334,14 @@ document.onkeyup = function(event) {
 
     } else if(trackGuesses.includes(userGuess)) {
         
-        alert("you already guessed that letter bretherrrrrrrrr")
+        // alert("you already guessed that letter bretherrrrrrrrr");
 
 
     }
     
       else {
 
-            alert("please enter a valid input");
+            // alert("please enter a valid input");
     }
 
 }
